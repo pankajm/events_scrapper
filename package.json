@@ -1,0 +1,17 @@
+{
+  "name": "events_scrapper",
+  "version": "1.0.0",
+  "description": "This project contains two major components - an event scrapper engine and APIs to expose the events data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pankaj Marghade",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.2",
+    "morgan": "^1.10.0"
+  }
+}
