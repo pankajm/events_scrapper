@@ -2,36 +2,36 @@
 
 const axios = require('axios'); 
 const parser = require('../utils/parser')
+const logger = require('../startup/logging').logger;
+const { cwInfo, techMemeInfo } = require('../constants') 
 
-function scrapComputerWorld(url){
+function scrapComputerWorld(){
 
   return new Promise((resolve, reject) => {
-    console.log("Getting events data for ", url);
-    axios.get(url)
+    logger.info("Getting events data for computerworld...");
+    axios.get(cwInfo.url)
     .then((response) => {
       const parserResult = parser.parseComputerWorldHTML(response.data);
-      console.log(parserResult);
       resolve(parserResult);
     })
     .catch((error) => {
-      console.log('error in swiggy api')
+      logger.error('error while scrapping computerworld website')
       reject(error);
     })
   })
 }
 
-function scrapTechMeme(url){
+function scrapTechMeme(){
 
   return new Promise((resolve, reject) => {
-    console.log("Getting events data for ", url);
-    axios.get(url)
+    logger.info("Getting events data for techmeme...");
+    axios.get(techMemeInfo.url)
     .then((response) => {
       const parserResult = parser.parseTechMemeHTML(response.data);
-      console.log(parserResult);
       resolve(parserResult);
     })
     .catch((error) => {
-      console.log('error in swiggy api')
+      logger.error('error while scrapping techmeme website');
       reject(error);
     })
   })

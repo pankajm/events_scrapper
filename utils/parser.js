@@ -1,4 +1,5 @@
 const cheerio = require('cheerio');
+const {cwInfo, techMemeInfo} = require('../constants')
 /**
  *
  * @param {String} html
@@ -10,11 +11,12 @@ function parseComputerWorldHTML(html){
   tableContent.each((index, element) => {
     let tds = $(element).find("td");
     let ths = $(element).find("th");
+    let website = cwInfo.name;
     let title = $(ths[0]).text();
     let fromDate = $(tds[1]).text();
     let toDate = $(tds[2]).text();
     let location = $(tds[3]).text();
-    eventsInfo.push({title, date:`${fromDate}-${toDate}`, location});
+    eventsInfo.push({website, title, date:`${fromDate}-${toDate}`, location});
   })
   return eventsInfo;
 }
@@ -29,10 +31,11 @@ function parseTechMemeHTML(html){
   const eventsDivs = $("#events > div");
   eventsDivs.each((index, element) => {
     let eventInfo = $(element).find("a > div");
+    let website = techMemeInfo.name;
     let date = $(eventInfo[0]).text();
     let title = $(eventInfo[1]).text();
     let location = $(eventInfo[2]).text();
-    eventsInfo.push({title, date, location});
+    eventsInfo.push({website, title, date, location});
   })
   return eventsInfo;
 }
