@@ -1,8 +1,9 @@
+/* Database connection file */
+
 const mongoose = require('mongoose');
 const config = require('config');
 const logger = require('./logging').logger;
 
-/* Database connection */
 
 module.exports.connectDB = function(){
   const db = config.get('db');

@@ -3,6 +3,9 @@ const { createLogger, format, transports } = require('winston');
 const { combine, timestamp, prettyPrint } = format;
 // require('winston-mongodb');
 
+
+/* Node JS way to log errors (outside request response cycle) at central place */
+
 function registerGlobalLogging () {
   
   process.on('uncaughtException', function(ex){
