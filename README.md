@@ -54,6 +54,21 @@ now we need to run mongo demon using below command
 
 ### (P.S. By default the app starts on port 3000 however If the port is busy it will ask you to run the app on other port)
 
+Now you need to call scrapEvents api from rest client (postman) or from browser to scrap events from above websites. (You can also use below curl to hit API from terminal) 
+
+API - http://localhost:3000/api/scrapEvents
+
+OR 
+
+curl -X GET \
+  http://localhost:3000/api/scrapEvents \
+  -H 'cache-control: no-cache' \
+  -H 'postman-token: a502b10b-8f3d-ff87-8ec6-cee4774daf59'
+  
+  
+  ### The reason to give seperate API for scrapping is to improve performance. As web scrapping is slower process when there are multiple websites to scrap, its better to run it seperately with some CRON job.
+
+
 ## The backend is ready and running..Please clone event_scrapper_frontend repository as well to see results. 
 
 ### End 
