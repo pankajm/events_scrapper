@@ -5,7 +5,7 @@ const cwInfo = {
 }
 
 const techMemeInfo = {
- name:"https://www.techmeme.com/",
+ name:"https://www.techmeme.com",
  url:"https://www.techmeme.com/events"
 }
 
