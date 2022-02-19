@@ -9,7 +9,7 @@ const techMemeInfo = {
  url:"https://www.techmeme.com/events"
 }
 
-const errors = {
+const httpCodes = {
   200:'Success',
   400:'Bad Request',
   404:'Record not found',
@@ -19,5 +19,5 @@ const errors = {
 module.exports = {
   cwInfo,
   techMemeInfo,
-  errors
+  httpCodes
 }

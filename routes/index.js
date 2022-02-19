@@ -1,14 +1,12 @@
 const express = require('express');
 const { Event } = require('../models/events');
 const router = express.Router();
-const { errors } = require('../constants');
+const { httpCodes } = require('../constants');
 const { logger } = require('../startup/logging');
 const scrappingService = require('../services/scrapper');
 
 /** Get API for scrapping events data */
 router.get('/scrapEvents', async (req, res, next) => {
-  
-  /** Get Events from given URLs  */
 
   try{
     const cwResponse = await scrappingService.scrapComputerWorld()
@@ -16,8 +14,8 @@ router.get('/scrapEvents', async (req, res, next) => {
 
     Event.collection.insertMany([...cwResponse, ...tmResponse], function(err, result){
       if(err)
-        return res.status(500).send(errors[500]);
-      return res.status(200).send(errors[200]);
+        return res.status(500).send(httpCodes[500]);
+      return res.status(200).send(httpCodes[200]);
     });
   }
   catch(err){
