@@ -16,7 +16,7 @@ function parseComputerWorldHTML(html){
     let fromDate = $(tds[1]).text();
     let toDate = $(tds[2]).text();
     let location = $(tds[3]).text();
-    eventsInfo.push({website, title, date:`${fromDate}-${toDate}`, location});
+    eventsInfo.push({website, title, date:`${fromDate} to ${toDate}`, location});
   })
   return eventsInfo;
 }
